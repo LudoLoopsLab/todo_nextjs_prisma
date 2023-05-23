@@ -1,13 +1,13 @@
-import { prisma } from "@/db";
-import { TodoItem } from "./components/TodoItem";
-import Link from "next/link";
+import { prisma } from "@/db"
+import { TodoItem } from "./components/TodoItem"
+import Link from "next/link"
 
 function getTodos() {
-  return prisma.todo.findMany();
+  return prisma.todo.findMany()
 }
 
 export default async function Home() {
-  const todos = await getTodos();
+  const todos = await getTodos()
 
   return (
     <>
@@ -26,5 +26,5 @@ export default async function Home() {
         ))}
       </ul>
     </>
-  );
+  )
 }

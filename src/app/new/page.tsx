@@ -1,17 +1,17 @@
-import { prisma } from "@/db";
-import { redirect } from "next/navigation";
-import Link from "next/link";
+import { prisma } from "@/db"
+import { redirect } from "next/navigation"
+import Link from "next/link"
 
 async function createTodo(data: FormData) {
-  "use server";
-  const title = data.get("title")?.valueOf();
+  "use server"
+  const title = data.get("title")?.valueOf()
 
   if (typeof title !== "string" || title.length === 0) {
-    throw new Error("invalid title");
+    throw new Error("invalid title")
   }
 
-  await prisma.todo.create({ data: { title, complete: false } });
-  redirect("/");
+  await prisma.todo.create({ data: { title, complete: false } })
+  redirect("/")
 }
 
 export default function Page() {
@@ -42,5 +42,5 @@ export default function Page() {
         </div>
       </form>
     </>
-  );
+  )
 }
